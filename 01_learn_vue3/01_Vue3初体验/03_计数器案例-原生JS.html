@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2 class="counter">0</h2>
+    <button class="add">+1</button>
+    <button class="subtraction">-1</button>
+
+    <script>
+
+        // 获取到所有元素
+        const counterEl = document.querySelector(".counter");
+        const addEl = document.querySelector(".add");
+        const subtractionEl = document.querySelector(".subtraction");
+
+        // 定义变量
+        let counter = 0;
+        counterEl.innerHTML = counter;
+        
+        // 监听加号按钮点击
+        addEl.addEventListener('click', () =>
+        {
+            counter += 1;
+            counterEl.innerHTML = counter;
+        })
+
+        // 监听减号按钮的点击
+        subtractionEl.addEventListener('click', () =>
+        {
+            counter -= 1;
+            counterEl.innerHTML = counter;
+        })
+
+    </script>
+
+</body>
+</html>
