@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <template id="da">
+        <div>
+            <h2 v-html="html"><h1>你不好</h1></h2>
+            <h2 :style="{color: age=10?'blue':'green'}">你不好</h2>
+            <h2 v-once>{{message}}</h2>
+            <!-- <h2>{{message.split(" ").reverse().join(" ")}}</h2> -->
+            <h2>{{age * "10"}}</h2>
+            <!-- <h2>{{forInversionTheMessage(message)}}</h2> -->
+            <h2 v-pre>{{ getMessageType }}</h2>
+            <h2 v-cloak>{{ getMessageType }}</h2>
+            <button @click="clickOnButton()">点击我改变自己</button>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const App = {
+            template: `#da`,
+            data() {
+                return {
+                    message: "Hello World",
+                    age: 10,
+                    html: "<h2 style='color: red; background: yellow'>你好</h2>"
+                }
+            },
+            methods: {
+                forInversionTheMessage(msg){
+                    return msg.split(" ").reverse().join(" ");
+                },
+                clickOnButton(){
+                    this.message = typeof this.message=="string"?[1,2]:"1231";
+                    console.log(typeof this.message);
+                }
+            },
+            computed: {
+                getMessageType() {
+                    return typeof this.message=="string"?"message是字符串":"message不是字符串";
+                }
+            }
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+</html>
