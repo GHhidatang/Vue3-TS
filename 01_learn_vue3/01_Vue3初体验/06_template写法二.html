@@ -14,6 +14,7 @@
             <h2>{{counter}}</h2>
             <button @click="add">+1</button>
             <button @click="subtraction">-1</button>
+            <button @click="btnClick">按钮</button>
         </div>
     </template>
 
@@ -38,6 +39,12 @@
                 subtraction()
                 {
                     this.counter--;
+                    console.log(this);
+                },
+                // 这里不可以使用箭头函数
+                btnClick: () =>
+                {
+                    // 因为这里的this === window
                     console.log(this);
                 }
             }
