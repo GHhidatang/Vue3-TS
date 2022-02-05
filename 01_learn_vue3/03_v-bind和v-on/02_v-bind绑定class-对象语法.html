@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .active{
+            color: red;
+        }
+        .title{
+            color: red;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div id="app"></div>
+
+    <template id="da">
+        <!-- 对象语法："{active:boolean}" -->
+        <div :class="{active: isActive}">哈哈</div>
+        <!-- 也可以有多个键值对 -->
+        <div :class="{active: false, 'title': true}">哈哈</div>
+        <!-- 默认的class和动态的class也可以结合起来 -->
+        <div class="abc" :class="{active: isActive, title: true}">哈哈</div>
+        <button @click="toggle">切换颜色</button>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const App = {
+            template: `#da`,
+            data() {
+                return {
+                    isActive: true,
+                }
+            },
+            methods: {
+                toggle() {
+                    this.isActive = !this.isActive;
+                }
+            }
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+</html>
