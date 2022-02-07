@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .abc{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="app"></div>
+
+    <template id="da">
+        <div>
+            <div>{{i}}</div>
+            <button v-on:click="btn1">+1</button>
+            <button @click="btn2">-1</button>
+            <button @click="i--">{{i}}-1</button>
+            <button @click="i++">{{i}}+1</button>
+            <div class="abc" v-on="{click: clck1, mousemove: mouse1}"></div>
+            <div class="abc" @="{click: clck1, mousemove: mouse1}"></div>
+         </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const App = {
+            template: `#da`,
+            data() {
+                return {
+                    i: 1
+                }
+            },
+            methods: {
+                btn1() {
+                    this.i++;
+                },
+                btn2() {
+                    this.i--;
+                },
+                clck1() {
+                    console.log("鼠标点击了");
+                },
+                mouse1() {
+                    console.log("鼠标移动了");
+                }
+
+            },
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+</html>
