@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <template id="da">
+        <template v-if="isHa">
+            <h2>哈哈哈</h2>
+            <h2>哈哈哈</h2>
+            <h2>哈哈哈</h2>
+        </template>
+
+        <template v-else>
+            <h2>呵呵呵</h2>
+            <h2>呵呵呵</h2>
+            <h2>呵呵呵</h2>
+        </template>
+        <button @click="switchH">切换</button>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const App = {
+            template: `#da`,
+            data() {
+                return {
+                    isHa: true
+                }
+            },
+            methods: {
+                switchH() {
+                    this.isHa = !this.isHa;
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+</html> 

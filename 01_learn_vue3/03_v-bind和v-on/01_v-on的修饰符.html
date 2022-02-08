@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <template id="da">
+        <div @click="divClick">
+            <button @click.stop="butClick">按钮</button>
+        </div>
+        <input type="text" @keyup.enter="enterKeyup">
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const App = {
+            template: `#da`,
+            data() {
+                return {
+                    
+                }
+            },
+            methods: {
+                divClick() {
+                    console.log("divClick");
+                },
+                butClick() {
+                    console.log("butClick");
+                },
+                enterKeyup() {
+                    console.log("enterKeyup", event.target.value);
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+</html>
