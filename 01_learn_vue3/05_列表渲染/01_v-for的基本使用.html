@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <template id="da">
+        <h2>电影名称</h2>
+        <ul>
+            <li v-for="(movie, index) in movieName">{{index}}.{{movie}}</li>
+        </ul>
+        <div v-for="movie in movieName">{{movie}}</div>
+        <h2>个人信息</h2>
+        <ul>
+            <li v-for="(value, key, index) in personal">{{index}}.{{key}}:{{value}}</li>
+        </ul>
+        <div v-for="(value, key, index) in personal">{{index}}.{{key}}:{{value}}</div>
+        <h2>遍历数字</h2>
+        <ul>
+            <li v-for="num in 10">{{num}}</li>
+        </ul>
+        <div v-for="num in 10">{{num}}</div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const App = {
+            template: `#da`,
+            data() {
+                return {
+                    movieName: [
+                        "盗梦空间",
+                        "教父",
+                        "肖申克的救赎",
+                        "少年派的奇幻漂流记"
+                    ],
+                    personal: {
+                        name: "da",
+                        age: 18
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+</html>
