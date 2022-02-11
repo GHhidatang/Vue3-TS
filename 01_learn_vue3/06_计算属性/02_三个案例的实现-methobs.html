@@ -10,10 +10,9 @@
     <div id="app"></div>
 
     <template id="da">
-        <ul>
-            <li v-for="(item, index) in letter" :key="index">{{item}}</li>
-        </ul>
-        <button @click="insertF">插入f元素</button>
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getResult()}}</h2>
+        <h2>{{getReverse()}}</h2>
     </template>
 
     <script src="../js/vue.js"></script>
@@ -22,14 +21,23 @@
             template: `#da`,
             data() {
                 return {
-                    letter: ["a", "b", "c", "d"]
+                    firstName: "Kebe",
+                    lastName: "Bryant",
+                    score: 80,
+                    message: "Hello World"
                 }
             },
             methods: {
-                insertF() {
-                    this.letter.splice(2, 0, "f");
+                getFullName() {
+                    return this.firstName + " " + this.lastName;
+                },
+                getResult() {
+                    return this.score >= 60 ? "及格" : "不及格";
+                },
+                getReverse() {
+                    return this.message.split(" ").reverse().join(" ");
                 }
-            },
+            }
         }
         Vue.createApp(App).mount("#app");
     </script>
