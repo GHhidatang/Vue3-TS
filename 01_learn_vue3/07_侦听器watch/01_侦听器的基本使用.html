@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <template id="da">
+        <input type="text" v-model="massage">
+        <button @click="queryAnswer">查找答案</button>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const App = {
+            template: `#da`,
+            data() {
+                return {
+                    massage: "Hello Werde"
+                }
+            },
+            watch: {
+                // 第一个参数指的是变化后的新值
+                // 第二个参数指的是变化前的旧值
+                massage(newValue, oldValue) {
+                    console.log("旧值", oldValue, "新值", newValue);
+                    this.queryAnswer();
+                }
+            },
+            methods: {
+                queryAnswer() {
+                    console.log(`你的问题是${this.massage}`);
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+</html>
