@@ -12,36 +12,41 @@
     <div id="app"></div>
 
     <template id="da">
-        <table>
-            <thead>
-                <th>序号</th>
-                <th>书籍名称</th>
-                <th>出版日期</th>
-                <th>价格</th>
-                <th>购买数量</th>
-                <th>操作</th>
-            </thead>
-            <tbody>
-                <tr v-for="(book, index) in books">
-                    <td>{{index + 1}}</td>
-                    <td>{{book.name}}</td>
-                    <td>{{book.date}}</td>
-                    <td>{{book.price}}</td>
-                    <td>
-                        <button :disabled="book.count <= 1" @click="book.count -= 1">-</button>
-                        {{book.count}}
-                        <button @click="book.count += 1">+</button>
-                    </td>
-                    <td>
-                        <button @click="removeBook(index)">移除</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>总价:{{totalPrice}}</h2>
+        <template v-if="books.length > 0">            
+            <table>
+                <thead>
+                    <th>序号</th>
+                    <th>书籍名称</th>
+                    <th>出版日期</th>
+                    <th>价格</th>
+                    <th>购买数量</th>
+                    <th>操作</th>
+                </thead>
+                <tbody>
+                    <tr v-for="(book, index) in books">
+                        <td>{{index + 1}}</td>
+                        <td>{{book.name}}</td>
+                        <td>{{book.date}}</td>
+                        <td>{{book.price}}</td>
+                        <td>
+                            <button :disabled="book.count <= 1" @click="book.count -= 1">-</button>
+                            {{book.count}}
+                            <button @click="book.count += 1">+</button>
+                        </td>
+                        <td>
+                            <button @click="removeBook(index)">移除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>总价:{{totalPrice}}</h2>
+        </template>
+        <template v-else>
+            <h2>购物车为空</h2>
+        </template>
     </template>
 
     <script src="../js/vue.js"></script>
-    <script src="./insex.js"></script>
+    <script src="./inset.js"></script>
 </body>
 </html>

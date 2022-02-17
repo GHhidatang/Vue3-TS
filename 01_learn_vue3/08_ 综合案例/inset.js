@@ -43,7 +43,7 @@ Vue.createApp({
             return finalPrice;
         }
     },
-    methods: {
+    methods: {              
         removeBook(index) {
             this.books.splice(index, 1);
         }
