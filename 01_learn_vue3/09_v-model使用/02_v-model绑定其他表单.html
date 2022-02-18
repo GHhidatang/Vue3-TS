@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <template id="da">
+        <label for="intro">
+            自我介绍
+            <textarea name="intro" id="intro" cols="30" rows="10" v-model="intro"></textarea>
+        </label>
+        <h2>{{intro}}</h2>
+
+        <span>你的爱好是:</span>
+        <label for="basketball">
+            <input id="basketball" type="checkbox" v-model="hobbies" value="basketball">篮球
+        </label>
+        <label for="football">
+            <input id="football" type="checkbox" v-model="hobbies" value="football">足球
+        </label>
+        <label for="tennis">
+            <input id="tennis" type="checkbox" v-model="hobbies" value="tennis">网球
+        </label>
+        <h2>{{hobbies}}</h2>
+
+        <span>你的性别:</span>
+        <label for="male">
+            <input id="male" type="radio" v-model="gender" value="male">男
+        </label>
+        <label for="female">
+            <input id="female" type="radio" v-model="gender" value="female">女
+        </label>
+        <h2>{{gender}}</h2>
+
+        <span>你喜欢的水果:</span>
+        <select v-model="fruit" multiple size="3">
+            <option value="apple">苹果</option>
+            <option value="orange">橘子</option>
+            <option value="banana">香蕉</option>
+        </select>
+        <h2>{{fruit}}</h2>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const App = {
+            template: `#da`,
+            data() {
+                return {
+                    intro: "Hello World",
+                    isAgree: false,
+                    hobbies: [],
+                    gender: "",
+                    fruit: ""
+                }
+            }
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+</html>
