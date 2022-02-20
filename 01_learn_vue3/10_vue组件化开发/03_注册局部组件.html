@@ -8,38 +8,37 @@
 </head>
 <body>
     <div id="app"></div>
+
     <template id="da">
-        <h2>我是标题</h2>
-        <p>我是内容</p>
+        <h2>你好</h2>
         <component-a></component-a>
-        <component-c></component-c>
     </template>
 
     <template id="component-a">
         <h2>我是component-a里的标签</h2>
     </template>
 
-    <template id="component-b">
-        <h2>我是component-b里的标签</h2>
-    </template>
-
     <script src="../js/vue.js"></script>
     <script>
-        const App = {
-            template: `#da`
-        }
-        
-        const app = Vue.createApp(App);
-
-        // 使用app注册一个全局组件
-        app.component("component-a", {
+        const ComponentA = {
             template: `#component-a`
-        })
+        }
 
-        app.component("ComponentC", {
-            template: `#component-b`
-        })
-
+        const App = {
+            template: `#da`,
+            components: {
+                // key 组件名称
+                // volue 组件对象
+                // key: volue
+                ComponentA: ComponentA
+            },
+            data() {
+                return {
+                    
+                }
+            }
+        }
+        const app = Vue.createApp(App)
         app.mount("#app");
     </script>
 </body>
