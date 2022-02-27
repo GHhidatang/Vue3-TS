@@ -5,13 +5,5 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "./build"),
         filename: "bundle.js"
-    } //,
-    // module: {
-    //     rules: [
-    //         {
-    //             tast: /\.css$/,
-    //             loader: "css-loader"
-    //         }
-    //     ]
-    // }
+    }
 }
