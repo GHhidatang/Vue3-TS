@@ -1,5 +1,6 @@
 import { sum } from "./js/math";
-import "./css/style.css";
+import "./js/element";
+
 const {priceFormat} = require('./js/format');
 
 console.log(sum(20, 30));
