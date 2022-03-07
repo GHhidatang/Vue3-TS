@@ -16,10 +16,17 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpg|png|gif)$/,
+                test: /\.jpg$/,
                 use: [
-                    "file-loader"
-                ]
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: './src/img/1111.jpg',
+                            esModule: false
+                        }
+                    }
+                ],
+                type: 'javascript/auto'
             }
         ]
     }

@@ -7,5 +7,5 @@ divEl.innerHTML = "你好,大唐";
 const bgDivEl = document.createElement('div');
 bgDivEl.className = "image-bg";
 
-document.body.appendChild(divEl);
 document.body.appendChild(bgDivEl);
+document.body.appendChild(divEl);
