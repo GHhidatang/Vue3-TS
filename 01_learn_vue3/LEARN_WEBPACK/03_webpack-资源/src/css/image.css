@@ -1,6 +1,4 @@
-.image-bg {
-    background-image: url("../img/1111.jpg");
-    background-size: contain;
+.img-el {
     width: 300px;
     height: 150px;
 }
