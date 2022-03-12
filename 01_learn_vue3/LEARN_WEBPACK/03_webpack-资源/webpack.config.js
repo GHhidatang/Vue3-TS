@@ -23,10 +23,14 @@ module.exports = {
                     导致运行后在页面上也无法显示
             */
             {
-                test: /\.jpg$/,
-                use: [
-                    "file-loader"
-                ]
+                test: /\.(jpg|png|gif)$/,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        // outputPath: "img",
+                        name: "img/[name]-[hash:6].[ext]"
+                    }
+                }
             },
 
             /*
