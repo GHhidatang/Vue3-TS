@@ -22,35 +22,29 @@ module.exports = {
                     但在build文件里面的图片提示加载错误
                     导致运行后在页面上也无法显示
             */
+            // {
+            //     test: /\.(jpg|png|gif)$/,
+            //     use: {
+            //         loader: "url-loader",
+            //         options: {
+            //             // outputPath: "img",
+            //             name: "img/[name]-[hash:6].[ext]",
+            //             limit: 100 * 1024
+            //         }
+            //     }
+            // },
             {
                 test: /\.(jpg|png|gif)$/,
-                use: {
-                    loader: "url-loader",
-                    options: {
-                        // outputPath: "img",
-                        name: "img/[name]-[hash:6].[ext]",
-                        limit: 100 * 1024
+                type: "asset",
+                generator: {
+                    filename: "img/[name]_[hash:6][ext]"
+                },
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 10 * 1024
                     }
                 }
             },
-
-            /*
-                这个是我在百度上寻找解决方法时 别人提供的解决代码
-                    但我无法理解这些代码 且在src/js/element.js这个文件里面的第3、12、13和17行代码 无法实现想要的功能
-            */
-            // {
-            //     test: /\.jpg$/,
-            //     use: [
-            //         {
-            //             loader: 'file-loader',
-            //             options: {
-            //                 name: './src/img/1111.jpg',
-            //                 esModule: false
-            //             }
-            //         }
-            //     ],
-            //     type: 'javascript/auto'
-            // }
         ]
     }
 }
