@@ -1,4 +1,5 @@
 import "../css/image.css";
+import "../font/iconfont.css"
 
 import zzhuImage from '../img/e50b2fd4bb928a2.jpg';
 
@@ -10,5 +11,9 @@ const imgEl = document.createElement("img");
 imgEl.className = "img-el"
 imgEl.src = zzhuImage;
 
+const iEl = document.createElement("i");
+iEl.className = "iconfont icon-ashbin";
+
 document.body.appendChild(divEl);
 document.body.appendChild(imgEl);
+document.body.appendChild(iEl);

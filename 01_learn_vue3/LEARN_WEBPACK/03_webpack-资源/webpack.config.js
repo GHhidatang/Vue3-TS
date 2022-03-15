@@ -45,6 +45,15 @@ module.exports = {
                     }
                 }
             },
+            // {
+            //     test: /\.(eot|ttf|woff2?)$/,
+            //     use: {
+            //         loader: "file-loader",
+            //         options: {
+            //             name: "font/[name]_[hash:6].[ext]"
+            //         }
+            //     }
+            // }
         ]
     }
 }
