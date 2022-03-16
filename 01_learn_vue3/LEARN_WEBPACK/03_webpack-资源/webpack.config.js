@@ -53,7 +53,14 @@ module.exports = {
             //             name: "font/[name]_[hash:6].[ext]"
             //         }
             //     }
-            // }
+            // } // 这种方法不能在使用 会冲突
+            {
+                test: /\.(eot|ttf|woff2?)$/,
+                type: "asset/resource",
+                generator: {
+                    filename: "font/[naem]_[hash:6][ext]"
+                }
+            }
         ]
     }
 }
