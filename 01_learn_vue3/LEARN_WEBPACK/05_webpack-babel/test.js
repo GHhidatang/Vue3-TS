@@ -1,3 +1,5 @@
+"use strict";
+
 var message = "Hello World";
 var names = ["abc", "cda", "nba"];
 names.forEach(function (item) {
