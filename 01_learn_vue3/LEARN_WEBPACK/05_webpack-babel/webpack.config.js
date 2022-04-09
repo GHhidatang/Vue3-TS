@@ -40,20 +40,24 @@ module.exports = {
                     filename: "font/[naem]_[hash:6][ext]"
                 }
             },
+            // {
+            //     test: /\.js$/,
+            //     use: {
+            //         loader: "babel-loader",
+            //         options: {
+            //             // plugins: [
+            //             //     "@babel/plugin-transform-arrow-functions",
+            //             //     "@babel/plugin-transform-block-scoping"
+            //             // ]
+            //             presets: [
+            //                 "@babel/preset-env"
+            //             ]
+            //         }
+            //     }
+            // }
             {
                 test: /\.js$/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        // plugins: [
-                        //     "@babel/plugin-transform-arrow-functions",
-                        //     "@babel/plugin-transform-block-scoping"
-                        // ]
-                        presets: [
-                            "@babel/preset-env"
-                        ]
-                    }
-                }
+                loader: "babel-loader"
             }
         ]
     },
